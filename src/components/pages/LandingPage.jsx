@@ -3,6 +3,7 @@ import Navigation from "@/components/organisms/Navigation";
 import HeroSection from "@/components/organisms/HeroSection";
 import HumanoidShowcase from "@/components/organisms/HumanoidShowcase";
 import AboutSection from "@/components/organisms/AboutSection";
+import DetailsSection from "@/components/organisms/DetailsSection";
 import FeaturesSection from "@/components/organisms/FeaturesSection";
 import TestimonialsSection from "@/components/organisms/TestimonialsSection";
 import ContactSection from "@/components/organisms/ContactSection";
@@ -16,6 +17,7 @@ const LandingPage = () => {
         <HeroSection />
         <HumanoidShowcase />
         <AboutSection />
+        <DetailsSection />
         <FeaturesSection />
         <TestimonialsSection />
         <ContactSection />
