@@ -24,7 +24,7 @@ const ImageShowcase = () => {
     loadImages();
   }, []);
 
-  const loadImages = async () => {
+const loadImages = async () => {
     try {
       setLoading(true);
       setError("");
@@ -38,7 +38,6 @@ const ImageShowcase = () => {
       });
       setShowBefore(initialShowBefore);
       
-      toast.success("Image showcase loaded successfully");
     } catch (err) {
       setError("Failed to load image showcase");
       toast.error("Failed to load images");
