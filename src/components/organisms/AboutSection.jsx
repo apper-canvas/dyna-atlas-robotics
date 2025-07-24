@@ -162,13 +162,13 @@ const AboutSection = () => {
                 <SpecificationTabs />
               </motion.div>
 
-              {/* Floating Performance Indicators */}
+{/* Floating Performance Indicators */}
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="absolute -right-6 top-12 bg-primary-500 text-white rounded-xl p-4 shadow-xl hidden lg:block z-10"
+                className="absolute -right-4 top-24 bg-primary-500 text-white rounded-xl p-4 shadow-xl hidden lg:block z-10"
               >
                 <div className="text-center">
                   <div className="text-2xl font-bold">99.9%</div>
