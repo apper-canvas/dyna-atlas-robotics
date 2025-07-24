@@ -1,34 +1,34 @@
 [
   {
     "Id": 1,
-    "company": "Tesla Manufacturing",
-    "logo": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=200&h=100&fit=crop&crop=center",
-    "quote": "Atlas robots have transformed our production line efficiency by 40%. The precision and reliability are unmatched in the industry.",
+    "company": "Axion Manufacturing",
+    "logo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&h=100&fit=crop&crop=center",
+    "quote": "Since implementing Atlas robots, we've achieved a remarkable 30% increase in production efficiency. The ROI exceeded our expectations within just 8 months, and our manufacturing precision has never been better.",
     "author": "Sarah Chen",
-    "position": "Head of Manufacturing Operations"
+    "position": "VP Operations"
   },
   {
     "Id": 2,
-    "company": "Ford Motor Company",
-    "logo": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=100&fit=crop&crop=center",
-    "quote": "The integration process was seamless, and Atlas robots now handle our most complex assembly tasks with incredible accuracy.",
+    "company": "GlobalShip",
+    "logo": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=100&fit=crop&crop=center",
+    "quote": "Atlas robots have revolutionized our warehouse safety protocols, delivering a 40% reduction in workplace injuries. The operational cost savings and improved worker wellbeing make this the best investment we've made.",
     "author": "Michael Rodriguez",
-    "position": "Director of Automation"
+    "position": "Director Logistics"
   },
   {
     "Id": 3,
-    "company": "Boeing Defense",
-    "logo": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&h=100&fit=crop&crop=center",
-    "quote": "Atlas provides the precision and safety standards we require for aerospace manufacturing. Exceptional technology and support.",
-    "author": "Jennifer Walsh",
-    "position": "Senior Manufacturing Engineer"
+    "company": "BioAdvance Research",
+    "logo": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=200&h=100&fit=crop&crop=center",
+    "quote": "The adaptability of Atlas robots to our complex lab protocols has been extraordinary. They've seamlessly integrated into our research workflows, maintaining the precision and sterility standards critical to our pharmaceutical development.",
+    "author": "Dr. Amara Patel",
+    "position": "Lead Scientist"
   },
   {
     "Id": 4,
-    "company": "General Electric",
-    "logo": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=100&fit=crop&crop=center",
-    "quote": "The 24/7 operational capability and predictive maintenance features have reduced our downtime by 60%. Outstanding investment.",
-    "author": "David Kim",
-    "position": "VP of Industrial Operations"
+    "company": "Innovative Solutions Inc.",
+    "logo": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop&crop=center",
+    "quote": "As a mid-size business, we thought advanced robotics were out of reach. Atlas proved us wrong with accessible pricing and incredible support. Our production capacity doubled while reducing operational costs by 25%.",
+    "author": "Jason Lee",
+    "position": "CEO"
   }
 ]
