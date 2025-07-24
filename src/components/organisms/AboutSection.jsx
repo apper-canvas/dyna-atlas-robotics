@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
@@ -141,76 +141,66 @@ const AboutSection = () => {
             className="relative"
           >
             {/* Main Visual Container */}
-            <div className="relative">
-              {/* Technical Specifications Card */}
+<div className="relative">
+              {/* Comprehensive Specifications Section */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-200"
+                className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
               >
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 gradient-text">Technical Specifications</h3>
-                
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center">
-                    <div className="text-3xl font-black gradient-text mb-2">1.8m</div>
-                    <div className="text-gray-600 text-sm">Height</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-black gradient-text mb-2">85kg</div>
-                    <div className="text-gray-600 text-sm">Weight</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-black gradient-text mb-2">25kg</div>
-                    <div className="text-gray-600 text-sm">Payload</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-black gradient-text mb-2">8hrs</div>
-                    <div className="text-gray-600 text-sm">Battery Life</div>
-                  </div>
+                {/* Header */}
+                <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-8 border-b border-gray-200">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-2 gradient-text">
+                    Atlas Technical Specifications
+                  </h3>
+                  <p className="text-gray-600">Comprehensive performance metrics and operational capabilities</p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-gray-200">
-                  <h4 className="font-bold text-gray-900 mb-4">Key Capabilities</h4>
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <ApperIcon name="CheckCircle" className="w-5 h-5 text-green-500" />
-                      <span className="text-gray-700">Bi-manual manipulation</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <ApperIcon name="CheckCircle" className="w-5 h-5 text-green-500" />
-                      <span className="text-gray-700">Dynamic balancing</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <ApperIcon name="CheckCircle" className="w-5 h-5 text-green-500" />
-                      <span className="text-gray-700">Computer vision</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <ApperIcon name="CheckCircle" className="w-5 h-5 text-green-500" />
-                      <span className="text-gray-700">Real-time adaptation</span>
-                    </div>
-                  </div>
+                {/* Specification Tabs */}
+                <SpecificationTabs />
+              </motion.div>
+
+              {/* Floating Performance Indicators */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="absolute -right-6 top-12 bg-primary-500 text-white rounded-xl p-4 shadow-xl hidden lg:block z-10"
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-bold">99.9%</div>
+                  <div className="text-xs opacity-90">Precision</div>
                 </div>
               </motion.div>
 
-              {/* Floating Stats */}
               <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-6 -right-6 w-28 h-28 bg-gradient-to-br from-primary-500 to-orange-500 rounded-2xl shadow-xl flex flex-col items-center justify-center text-white"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                viewport={{ once: true }}
+                className="absolute -left-6 bottom-12 bg-gray-900 text-white rounded-xl p-4 shadow-xl hidden lg:block z-10"
               >
-                <div className="text-2xl font-black">99.9%</div>
-                <div className="text-xs opacity-90">Accuracy</div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold">24/7</div>
+                  <div className="text-xs opacity-90">Operation</div>
+                </div>
               </motion.div>
 
               <motion.div
-                animate={{ y: [10, -10, 10] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-4 -left-6 w-24 h-24 bg-gradient-to-br from-blue-500 to-primary-500 rounded-xl shadow-xl flex flex-col items-center justify-center text-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+                viewport={{ once: true }}
+                className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white rounded-full px-4 py-2 shadow-lg hidden lg:block z-10"
               >
-                <div className="text-xl font-black">24/7</div>
-                <div className="text-xs opacity-90">Uptime</div>
+                <div className="flex items-center space-x-2">
+                  <ApperIcon name="Zap" className="w-4 h-4" />
+                  <span className="text-sm font-semibold">AI Powered</span>
+<span className="text-sm font-semibold">AI Powered</span>
+                </div>
               </motion.div>
             </div>
           </motion.div>
