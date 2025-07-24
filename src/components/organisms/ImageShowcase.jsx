@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import ApperIcon from "@/components/ApperIcon";
-import Button from "@/components/atoms/Button";
-import imageShowcaseService from "@/services/api/imageShowcaseService";
-import { toast } from "react-toastify";
-
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import ApperIcon from '@/components/ApperIcon'
+import Button from '@/components/atoms/Button'
+import LazyImage from '@/components/atoms/LazyImage'
+import imageShowcaseService from '@/services/api/imageShowcaseService'
+import { toast } from 'react-toastify'
 const ImageShowcase = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedImage, setSelectedImage] = useState(null);
+const [selectedImage, setSelectedImage] = useState(null);
   const [showBefore, setShowBefore] = useState({});
-
+  const [imageLoadingStates, setImageLoadingStates] = useState({});
   const categories = [
     { id: "all", label: "All Environments", icon: "Grid3X3" },
     { id: "manufacturing", label: "Manufacturing", icon: "Settings" },
@@ -68,9 +68,22 @@ const loadImages = async () => {
     setShowBefore(prev => ({
       ...prev,
       [imageId]: !prev[imageId]
+}));
+  };
+
+  const handleImageLoad = (imageId) => {
+    setImageLoadingStates(prev => ({
+      ...prev,
+      [imageId]: false
     }));
   };
 
+  const handleImageLoadStart = (imageId) => {
+    setImageLoadingStates(prev => ({
+      ...prev,
+      [imageId]: true
+    }));
+  };
   const openImageModal = (image) => {
     setSelectedImage(image);
   };
@@ -192,14 +205,14 @@ const loadImages = async () => {
                 className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
                 {/* Image Container */}
-                <div className="relative h-56 lg:h-64 overflow-hidden group cursor-pointer">
-                  <motion.img
+<div className="relative h-56 lg:h-64 overflow-hidden group cursor-pointer">
+                  <LazyImage
                     src={showBefore[image.Id] ? image.beforeImage : image.afterImage}
                     alt={`${image.title} - ${showBefore[image.Id] ? 'Before' : 'After'}`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 transform-gpu"
                     onClick={() => openImageModal(image)}
                     whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
                   />
                   
                   {/* Before/After Toggle */}
@@ -313,11 +326,11 @@ const loadImages = async () => {
                 className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-auto"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="relative">
-                  <img
+<div className="relative">
+                  <LazyImage
                     src={showBefore[selectedImage.Id] ? selectedImage.beforeImage : selectedImage.afterImage}
                     alt={selectedImage.title}
-                    className="w-full h-48 sm:h-64 lg:h-96 object-cover"
+                    className="w-full h-48 sm:h-64 lg:h-96 object-cover transform-gpu"
                   />
                   <Button
                     onClick={closeImageModal}
