@@ -13,8 +13,13 @@ const ContactSection = () => {
     phone: "",
     message: ""
   });
-  const [errors, setErrors] = useState({});
+const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Newsletter state
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterError, setNewsletterError] = useState("");
+  const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -94,6 +99,51 @@ const ContactSection = () => {
       });
     } finally {
       setIsSubmitting(false);
+}
+  };
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validate email
+    if (!newsletterEmail.trim()) {
+      setNewsletterError("Email is required");
+      return;
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newsletterEmail)) {
+      setNewsletterError("Please enter a valid email address");
+      return;
+    }
+
+    setIsNewsletterSubmitting(true);
+    setNewsletterError("");
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      toast.success("Welcome to Atlas Insights! You'll receive our latest updates, feature announcements, and industry insights directly in your inbox.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
+
+      // Reset form
+      setNewsletterEmail("");
+    } catch (error) {
+      toast.error("Unable to subscribe at this time. Please try again later.", {
+        position: "top-right",
+        autoClose: 4000,
+      });
+    } finally {
+      setIsNewsletterSubmitting(false);
+    }
+  };
+
+  const handleNewsletterEmailChange = (e) => {
+    setNewsletterEmail(e.target.value);
+    if (newsletterError) {
+      setNewsletterError("");
     }
   };
 
@@ -184,15 +234,75 @@ const ContactSection = () => {
                   <div className="text-gray-300">Boston, MA • Silicon Valley, CA</div>
                 </div>
               </div>
+</motion.div>
+
+            {/* Newsletter Signup */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="mt-10 p-6 bg-gradient-to-r from-primary-500/10 to-blue-500/10 rounded-xl border border-primary-500/30 backdrop-blur-sm"
+            >
+              <div className="flex items-center space-x-3 mb-4">
+                <ApperIcon name="Mail" className="w-6 h-6 text-primary-400" />
+                <span className="text-white font-semibold text-lg">Stay Updated with Atlas Insights</span>
+              </div>
+              <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+                Get exclusive access to the latest Atlas robot updates, cutting-edge features, and industry insights. 
+                Join thousands of professionals revolutionizing their operations with humanoid robotics.
+              </p>
+              
+              <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex-1">
+                    <input
+                      type="email"
+                      value={newsletterEmail}
+                      onChange={handleNewsletterEmailChange}
+                      placeholder="Enter your email for Atlas updates"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                      disabled={isNewsletterSubmitting}
+                    />
+                    {newsletterError && (
+                      <p className="text-red-400 text-xs mt-1">{newsletterError}</p>
+                    )}
+                  </div>
+                  <Button
+                    type="submit"
+                    disabled={isNewsletterSubmitting}
+                    className="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-medium rounded-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  >
+                    {isNewsletterSubmitting ? (
+                      <>
+                        <ApperIcon name="Loader2" className="w-4 h-4 mr-2 animate-spin" />
+                        Subscribing...
+                      </>
+                    ) : (
+                      <>
+                        Subscribe
+                        <ApperIcon name="ArrowRight" className="w-4 h-4 ml-2" />
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </form>
+              
+              <div className="flex items-start space-x-2 mt-4">
+                <ApperIcon name="Shield" className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                <p className="text-gray-400 text-xs">
+                  We respect your privacy. Unsubscribe anytime. No spam, just valuable robotics insights.
+                </p>
+              </div>
             </motion.div>
 
             {/* Response Time */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
-              className="mt-10 p-6 bg-gradient-to-r from-primary-500/20 to-orange-500/20 rounded-xl border border-primary-500/20 backdrop-blur-sm"
+              className="mt-6 p-6 bg-gradient-to-r from-primary-500/20 to-orange-500/20 rounded-xl border border-primary-500/20 backdrop-blur-sm"
             >
               <div className="flex items-center space-x-3 mb-3">
                 <ApperIcon name="Clock" className="w-6 h-6 text-primary-400" />
@@ -206,10 +316,10 @@ const ContactSection = () => {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div
+<motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
             <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-200">
