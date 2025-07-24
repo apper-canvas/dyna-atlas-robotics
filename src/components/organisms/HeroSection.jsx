@@ -28,40 +28,93 @@ const HeroSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+<motion.div
+            initial={{ opacity: 0, x: -50, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ 
+              duration: 1, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              staggerChildren: 0.2,
+              delayChildren: 0.1
+            }}
             className="text-center lg:text-left"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-100 to-orange-100 rounded-full text-primary-700 text-sm font-medium mb-6"
+<motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30, scale: 0.9 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }
+                }
+              }}
+              initial="hidden"
+              animate="visible"
+              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-100 to-orange-100 rounded-full text-primary-700 text-sm font-medium mb-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              <ApperIcon name="Zap" className="w-4 h-4 mr-2" />
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+              >
+                <ApperIcon name="Zap" className="w-4 h-4 mr-2" />
+              </motion.div>
               Next-Generation Industrial Robotics
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+<motion.h1
+              variants={{
+                hidden: { opacity: 0, y: 50, scale: 0.9 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: { 
+                    duration: 1, 
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    staggerChildren: 0.1
+                  }
+                }
+              }}
+              initial="hidden"
+              animate="visible"
               className="text-5xl lg:text-7xl font-black text-gray-900 leading-tight mb-6"
             >
-              Meet{" "}
-              <span className="gradient-text">Atlas</span>
+              <motion.span variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                Meet{" "}
+              </motion.span>
+              <motion.span 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="gradient-text inline-block"
+              >
+                Atlas
+              </motion.span>
               <br />
-              The Future of{" "}
-              <span className="gradient-text">Industrial</span>{" "}
-              Automation
+              <motion.span variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                The Future of{" "}
+              </motion.span>
+              <motion.span 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="gradient-text inline-block"
+              >
+                Industrial
+              </motion.span>{" "}
+              <motion.span variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                Automation
+              </motion.span>
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+<motion.p
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+                }
+              }}
+              initial="hidden"
+              animate="visible"
               className="text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl"
             >
               Revolutionary humanoid robotics technology designed for complex industrial environments. 
@@ -69,54 +122,135 @@ const HeroSection = () => {
               with unprecedented efficiency and reliability.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+<motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: {
+                    duration: 0.8,
+                    staggerChildren: 0.2,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
+                }
+              }}
+              initial="hidden"
+              animate="visible"
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button size="lg" onClick={handleGetDemo} className="group">
-                Get Demo
-                <ApperIcon name="ArrowRight" className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button 
-                variant="secondary" 
-                size="lg" 
-                onClick={handleLearnMore}
-                className="group"
-              >
-                Learn More
-                <ApperIcon name="Play" className="w-5 h-5 ml-2 transition-transform group-hover:scale-110" />
-              </Button>
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                <Button size="lg" onClick={handleGetDemo} className="group">
+                  Get Demo
+                  <ApperIcon name="ArrowRight" className="w-5 h-5 ml-2 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+                </Button>
+              </motion.div>
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                <Button 
+                  variant="secondary" 
+                  size="lg" 
+                  onClick={handleLearnMore}
+                  className="group"
+                >
+                  Learn More
+                  <ApperIcon name="Play" className="w-5 h-5 ml-2 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12" />
+                </Button>
+              </motion.div>
             </motion.div>
 
             {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+<motion.div
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: {
+                    duration: 0.8,
+                    staggerChildren: 0.15,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
+                }
+              }}
+              initial="hidden"
+              animate="visible"
               className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-gray-200"
             >
-              <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold gradient-text">99.9%</div>
-                <div className="text-sm text-gray-600">Uptime Reliability</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold gradient-text">0.1mm</div>
-                <div className="text-sm text-gray-600">Precision Accuracy</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold gradient-text">24/7</div>
-                <div className="text-sm text-gray-600">Continuous Operation</div>
-              </div>
+              <motion.div 
+                variants={{ 
+                  hidden: { opacity: 0, y: 20, scale: 0.9 }, 
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                    transition: { duration: 0.6 }
+                  }
+                }}
+                className="text-center lg:text-left group"
+              >
+                <motion.div 
+                  className="text-3xl font-bold gradient-text"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  99.9%
+                </motion.div>
+                <div className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">Uptime Reliability</div>
+              </motion.div>
+              <motion.div 
+                variants={{ 
+                  hidden: { opacity: 0, y: 20, scale: 0.9 }, 
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                    transition: { duration: 0.6 }
+                  }
+                }}
+                className="text-center lg:text-left group"
+              >
+                <motion.div 
+                  className="text-3xl font-bold gradient-text"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  0.1mm
+                </motion.div>
+                <div className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">Precision Accuracy</div>
+              </motion.div>
+              <motion.div 
+                variants={{ 
+                  hidden: { opacity: 0, y: 20, scale: 0.9 }, 
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                    transition: { duration: 0.6 }
+                  }
+                }}
+                className="text-center lg:text-left group"
+              >
+                <motion.div 
+                  className="text-3xl font-bold gradient-text"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  24/7
+                </motion.div>
+                <div className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">Continuous Operation</div>
+              </motion.div>
             </motion.div>
           </motion.div>
 
           {/* Robot Visual */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+<motion.div
+            initial={{ opacity: 0, x: 50, scale: 0.9 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ 
+              duration: 1.2, 
+              delay: 0.3,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
             className="relative"
           >
             <div className="relative">
