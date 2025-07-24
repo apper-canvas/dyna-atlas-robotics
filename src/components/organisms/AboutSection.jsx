@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
-
+import SpecificationTabs from "@/components/organisms/SpecificationTabs";
 const AboutSection = () => {
   const handleGetStarted = () => {
     const featuresSection = document.querySelector("#features");
@@ -196,10 +196,9 @@ const AboutSection = () => {
                 viewport={{ once: true }}
                 className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white rounded-full px-4 py-2 shadow-lg hidden lg:block z-10"
               >
-                <div className="flex items-center space-x-2">
+<div className="flex items-center space-x-2">
                   <ApperIcon name="Zap" className="w-4 h-4" />
                   <span className="text-sm font-semibold">AI Powered</span>
-<span className="text-sm font-semibold">AI Powered</span>
                 </div>
               </motion.div>
             </div>
