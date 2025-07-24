@@ -27,12 +27,24 @@ const Footer = () => {
     { label: "Partners", href: "#" },
     { label: "Investors", href: "#" }
   ];
+const socialLinks = [
+    { icon: "Linkedin", href: "https://linkedin.com/company/atlas-robotics", label: "LinkedIn" },
+    { icon: "Twitter", href: "https://twitter.com/atlas_robotics", label: "Twitter" },
+    { icon: "Youtube", href: "https://youtube.com/@atlasrobotics", label: "YouTube" },
+    { icon: "Github", href: "https://github.com/atlas-robotics", label: "GitHub" },
+    { icon: "Instagram", href: "https://instagram.com/atlas_robotics", label: "Instagram" }
+  ];
 
-  const socialLinks = [
-    { icon: "Linkedin", href: "#", label: "LinkedIn" },
-    { icon: "Twitter", href: "#", label: "Twitter" },
-    { icon: "Youtube", href: "#", label: "YouTube" },
-    { icon: "Github", href: "#", label: "GitHub" }
+  const contactInfo = [
+    { icon: "Phone", text: "+1 (555) 123-4567", href: "tel:+15551234567" },
+    { icon: "Mail", text: "info@atlasrobotics.com", href: "mailto:info@atlasrobotics.com" },
+    { icon: "MapPin", text: "San Francisco, CA", href: "#" }
+  ];
+
+  const offices = [
+    { city: "San Francisco", address: "123 Innovation Drive, Suite 400", country: "USA" },
+    { city: "Tokyo", address: "5-10-1 Shibuya, Shibuya City", country: "Japan" },
+    { city: "Berlin", address: "Unter den Linden 77", country: "Germany" }
   ];
 
   const handleLinkClick = (href) => {
@@ -41,6 +53,10 @@ const Footer = () => {
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
+    } else if (href.startsWith("mailto:") || href.startsWith("tel:")) {
+      window.location.href = href;
+    } else {
+      window.open(href, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -53,7 +69,7 @@ const Footer = () => {
       <div className="relative z-10">
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+<div className="grid lg:grid-cols-5 md:grid-cols-2 gap-12">
             {/* Company Info */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -74,33 +90,33 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Pioneering the future of industrial automation with advanced humanoid robotics 
-                that deliver unprecedented precision, safety, and efficiency.
+                Leading the robotics revolution with cutting-edge humanoid technology that transforms 
+                industrial operations through unmatched precision, intelligence, and reliability.
               </p>
               
               {/* Social Links */}
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
-                  <a
+                  <button
                     key={social.label}
-                    href={social.href}
+                    onClick={() => handleLinkClick(social.href)}
                     className="w-10 h-10 bg-gray-700 hover:bg-gradient-to-br hover:from-primary-500 hover:to-primary-600 rounded-lg flex items-center justify-center text-gray-300 hover:text-white transition-all duration-200 transform hover:scale-110"
                     aria-label={social.label}
                   >
                     <ApperIcon name={social.icon} className="w-5 h-5" />
-                  </a>
+                  </button>
                 ))}
               </div>
             </motion.div>
 
-            {/* Quick Links */}
+            {/* Navigation Sitemap */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
+              <h3 className="text-white font-bold text-lg mb-6">Navigation</h3>
               <ul className="space-y-4">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
@@ -115,7 +131,7 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            {/* Resources */}
+            {/* Resources & Support */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -129,6 +145,8 @@ const Footer = () => {
                     <a
                       href={link.href}
                       className="text-gray-300 hover:text-primary-400 transition-colors duration-200 hover:translate-x-1 transform inline-block"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {link.label}
                     </a>
@@ -137,7 +155,7 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            {/* Company */}
+            {/* Company & About */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -151,12 +169,54 @@ const Footer = () => {
                     <a
                       href={link.href}
                       className="text-gray-300 hover:text-primary-400 transition-colors duration-200 hover:translate-x-1 transform inline-block"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {link.label}
                     </a>
                   </li>
                 ))}
               </ul>
+            </motion.div>
+
+            {/* Contact & Locations */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-white font-bold text-lg mb-6">Contact Us</h3>
+              
+              {/* Contact Information */}
+              <div className="space-y-4 mb-8">
+                {contactInfo.map((contact, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-5 h-5 text-primary-400 flex-shrink-0">
+                      <ApperIcon name={contact.icon} className="w-5 h-5" />
+                    </div>
+                    <button
+                      onClick={() => handleLinkClick(contact.href)}
+                      className="text-gray-300 hover:text-primary-400 transition-colors duration-200 text-sm"
+                    >
+                      {contact.text}
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* Office Locations */}
+              <div>
+                <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wide">Global Offices</h4>
+                <div className="space-y-3">
+                  {offices.map((office, index) => (
+                    <div key={index} className="text-sm">
+                      <div className="text-gray-300 font-medium">{office.city}, {office.country}</div>
+                      <div className="text-gray-400 text-xs">{office.address}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
 
@@ -193,22 +253,87 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-400 text-sm">
-                © 2024 Atlas Robotics. All rights reserved.
+<div className="border-t border-gray-700">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-6 lg:space-y-0">
+              {/* Copyright and Company Info */}
+              <div className="flex flex-col space-y-2">
+                <div className="text-gray-400 text-sm">
+                  © 2024 Atlas Robotics Inc. All rights reserved.
+                </div>
+                <div className="text-gray-500 text-xs">
+                  Revolutionizing industry through advanced robotics technology.
+                </div>
               </div>
-              <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors duration-200">
-                  Privacy Policy
-                </a>
-                <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors duration-200">
-                  Terms of Service
-                </a>
-                <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors duration-200">
-                  Cookie Policy
-                </a>
+              
+              {/* Legal Links */}
+              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8 text-sm">
+                <div className="flex space-x-6">
+                  <a 
+                    href="/privacy-policy" 
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Privacy Policy
+                  </a>
+                  <a 
+                    href="/terms-of-service" 
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Terms of Service
+                  </a>
+                  <a 
+                    href="/cookie-policy" 
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Cookie Policy
+                  </a>
+                </div>
+                <div className="flex space-x-6">
+                  <a 
+                    href="/accessibility" 
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Accessibility
+                  </a>
+                  <a 
+                    href="/security" 
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Security
+                  </a>
+                  <a 
+                    href="/legal" 
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Legal Notice
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            {/* Additional Footer Info */}
+            <div className="mt-6 pt-6 border-t border-gray-800">
+              <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs text-gray-500">
+                <div>
+                  Atlas Robotics is a registered trademark. Patent pending technology.
+                </div>
+                <div className="flex items-center space-x-4">
+                  <span>🏆 Industry Leader 2024</span>
+                  <span>🌍 Carbon Neutral Certified</span>
+                  <span>🔒 ISO 27001 Compliant</span>
+                </div>
               </div>
             </div>
           </div>
