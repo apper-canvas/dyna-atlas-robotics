@@ -69,7 +69,7 @@ const socialLinks = [
       <div className="relative z-10">
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-<div className="grid lg:grid-cols-5 md:grid-cols-2 gap-12">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Company Info */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -254,7 +254,7 @@ const socialLinks = [
 
         {/* Bottom Bar */}
 <div className="border-t border-gray-700">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-6 lg:space-y-0">
               {/* Copyright and Company Info */}
               <div className="flex flex-col space-y-2">
@@ -267,11 +267,11 @@ const socialLinks = [
               </div>
               
               {/* Legal Links */}
-              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8 text-sm">
-                <div className="flex space-x-6">
+              <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-6 lg:space-x-8 text-sm">
+                <div className="flex flex-wrap gap-3 sm:gap-6">
                   <a 
                     href="/privacy-policy" 
-                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200 min-h-[44px] flex items-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -279,7 +279,7 @@ const socialLinks = [
                   </a>
                   <a 
                     href="/terms-of-service" 
-                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200 min-h-[44px] flex items-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -287,17 +287,17 @@ const socialLinks = [
                   </a>
                   <a 
                     href="/cookie-policy" 
-                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200 min-h-[44px] flex items-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Cookie Policy
                   </a>
                 </div>
-                <div className="flex space-x-6">
+                <div className="flex flex-wrap gap-3 sm:gap-6">
                   <a 
                     href="/accessibility" 
-                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200 min-h-[44px] flex items-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -305,7 +305,7 @@ const socialLinks = [
                   </a>
                   <a 
                     href="/security" 
-                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200 min-h-[44px] flex items-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -313,7 +313,7 @@ const socialLinks = [
                   </a>
                   <a 
                     href="/legal" 
-                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200 min-h-[44px] flex items-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -329,7 +329,7 @@ const socialLinks = [
                 <div>
                   Atlas Robotics is a registered trademark. Patent pending technology.
                 </div>
-                <div className="flex items-center space-x-4">
+                <div className="flex flex-wrap items-center justify-center gap-3 lg:gap-4">
                   <span>🏆 Industry Leader 2024</span>
                   <span>🌍 Carbon Neutral Certified</span>
                   <span>🔒 ISO 27001 Compliant</span>

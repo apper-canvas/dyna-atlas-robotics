@@ -101,7 +101,7 @@ const FeaturesSection = () => {
   }
 
   return (
-    <section id="features" className="py-24 bg-white relative overflow-hidden">
+<section id="features" className="py-12 sm:py-24 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary-50 to-orange-50 rounded-full opacity-60 blur-3xl translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-blue-50 to-primary-50 rounded-full opacity-50 blur-3xl -translate-x-1/2 translate-y-1/2"></div>
@@ -113,7 +113,7 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 lg:mb-16"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-6"
           >
             Engineered for{" "}
             <span className="gradient-text">Excellence</span>
@@ -142,7 +142,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto"
+            className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto"
           >
             Atlas combines cutting-edge artificial intelligence with industrial-grade hardware to deliver 
             unmatched performance across diverse manufacturing and automation applications.
@@ -150,7 +150,7 @@ const FeaturesSection = () => {
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <FeatureCard 
               key={feature.Id} 
@@ -166,13 +166,13 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-12 lg:mt-16"
         >
-          <div className="bg-gradient-to-br from-gray-50 to-primary-50 rounded-2xl p-8 border border-gray-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-gradient-to-br from-gray-50 to-primary-50 rounded-xl lg:rounded-2xl p-6 lg:p-8 border border-gray-200">
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">
               Ready to Transform Your Operations?
             </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto text-sm lg:text-base">
               Discover how Atlas can revolutionize your industrial processes with precision, 
               safety, and unprecedented efficiency.
             </p>
@@ -183,7 +183,7 @@ const FeaturesSection = () => {
                   contactSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 group"
+              className="inline-flex items-center px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-lg lg:rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 group min-h-[44px]"
             >
               Schedule Consultation
               <ApperIcon name="Calendar" className="w-5 h-5 ml-2 transition-transform group-hover:scale-110" />

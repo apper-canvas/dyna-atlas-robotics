@@ -322,18 +322,18 @@ const [errors, setErrors] = useState({});
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-200">
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 border border-gray-200">
+              <div className="mb-6 lg:mb-8">
+                <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2">
                   Schedule Your Demo
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm lg:text-base">
                   Fill out the form below and we'll get back to you within 24 hours.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                   <FormField
                     label="Full Name"
                     id="name"
@@ -354,7 +354,7 @@ const [errors, setErrors] = useState({});
                   />
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                   <FormField
                     label="Email Address"
                     id="email"
@@ -392,7 +392,7 @@ const [errors, setErrors] = useState({});
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full group" 
+                    className="w-full group min-h-[48px]" 
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

@@ -181,18 +181,34 @@ const TestimonialsSection = () => {
         {/* Testimonials Carousel */}
         <div className="relative">
           {/* Navigation Buttons */}
-          <div className="hidden lg:block">
+<div className="hidden lg:block">
             <button
               onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-16 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 z-10"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-16 w-14 h-14 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 z-10 min-h-[44px] min-w-[44px]"
             >
               <ApperIcon name="ChevronLeft" className="w-6 h-6" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 z-10"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 w-14 h-14 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 z-10 min-h-[44px] min-w-[44px]"
             >
               <ApperIcon name="ChevronRight" className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Mobile Navigation Controls */}
+          <div className="flex lg:hidden justify-center space-x-4 mb-8">
+            <button
+              onClick={prevTestimonial}
+              className="w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 min-h-[44px] min-w-[44px]"
+            >
+              <ApperIcon name="ChevronLeft" className="w-5 h-5" />
+            </button>
+            <button
+              onClick={nextTestimonial}
+              className="w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 min-h-[44px] min-w-[44px]"
+            >
+              <ApperIcon name="ChevronRight" className="w-5 h-5" />
             </button>
           </div>
 

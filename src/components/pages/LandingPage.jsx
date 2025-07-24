@@ -12,18 +12,20 @@ import Footer from "@/components/organisms/Footer";
 import ImageShowcase from "@/components/organisms/ImageShowcase";
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-white">
+<div className="min-h-screen bg-white">
       <Navigation />
-<main>
-        <HeroSection />
-        <HumanoidShowcase />
-        <ImageShowcase />
-        <AboutSection />
-        <MadeByHumansSection />
-        <DetailsSection />
-        <FeaturesSection />
-        <TestimonialsSection />
-        <ContactSection />
+      <main className="overflow-x-hidden">
+        <div className="px-2 sm:px-0">
+          <HeroSection />
+          <HumanoidShowcase />
+          <ImageShowcase />
+          <AboutSection />
+          <MadeByHumansSection />
+          <DetailsSection />
+          <FeaturesSection />
+          <TestimonialsSection />
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>

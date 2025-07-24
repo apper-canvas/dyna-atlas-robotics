@@ -138,7 +138,7 @@ const loadImages = async () => {
     : images.filter(img => img.category === selectedCategory);
 
   return (
-    <section id="gallery" className="py-20 bg-gray-50">
+<section id="gallery" className="py-12 sm:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -146,12 +146,12 @@ const loadImages = async () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Atlas in Action
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
             Discover how Atlas transforms industries with precision, safety, and efficiency. 
             Explore before and after scenarios across manufacturing, warehouse, and research environments.
           </p>
@@ -163,23 +163,23 @@ const loadImages = async () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-12 overflow-x-auto pb-2"
         >
           {categories.map((category) => (
             <Button
               key={category.id}
               onClick={() => handleCategoryFilter(category.id)}
               variant={selectedCategory === category.id ? "default" : "outline"}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 flex-shrink-0 min-h-[44px]"
             >
               <ApperIcon name={category.icon} className="w-4 h-4" />
-              <span>{category.label}</span>
+              <span className="text-sm lg:text-base">{category.label}</span>
             </Button>
           ))}
         </motion.div>
 
         {/* Image Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           <AnimatePresence>
             {filteredImages.map((image, index) => (
               <motion.div
@@ -192,7 +192,7 @@ const loadImages = async () => {
                 className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
                 {/* Image Container */}
-                <div className="relative h-64 overflow-hidden group cursor-pointer">
+                <div className="relative h-56 lg:h-64 overflow-hidden group cursor-pointer">
                   <motion.img
                     src={showBefore[image.Id] ? image.beforeImage : image.afterImage}
                     alt={`${image.title} - ${showBefore[image.Id] ? 'Before' : 'After'}`}
@@ -203,7 +203,7 @@ const loadImages = async () => {
                   />
                   
                   {/* Before/After Toggle */}
-                  <div className="absolute top-4 right-4">
+                  <div className="absolute top-3 right-3">
                     <Button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -211,21 +211,21 @@ const loadImages = async () => {
                       }}
                       variant="outline"
                       size="sm"
-                      className="bg-white/90 backdrop-blur-sm border-white/20 hover:bg-white text-gray-900"
+                      className="bg-white/90 backdrop-blur-sm border-white/20 hover:bg-white text-gray-900 min-h-[36px] text-xs"
                     >
                       {showBefore[image.Id] ? "After" : "Before"}
                     </Button>
                   </div>
 
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800 capitalize">
+                  <div className="absolute top-3 left-3">
+                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800 capitalize">
                       {image.category}
                     </span>
                   </div>
 
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  {/* Hover Overlay - Hidden on mobile for better touch experience */}
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center hidden lg:flex">
                     <div className="flex space-x-2">
                       <Button
                         onClick={(e) => {
@@ -233,7 +233,7 @@ const loadImages = async () => {
                           openImageModal(image);
                         }}
                         size="sm"
-                        className="bg-white/90 text-gray-900 hover:bg-white"
+                        className="bg-white/90 text-gray-900 hover:bg-white min-h-[40px]"
                       >
                         <ApperIcon name="Eye" className="w-4 h-4 mr-1" />
                         View
@@ -243,11 +243,11 @@ const loadImages = async () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <div className="p-4 lg:p-6">
+                  <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-2">
                     {image.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2">
+                  <p className="text-gray-600 mb-4 line-clamp-2 text-sm lg:text-base">
                     {image.description}
                   </p>
                   
@@ -256,14 +256,24 @@ const loadImages = async () => {
                       <ApperIcon name="MapPin" className="w-4 h-4 mr-1" />
                       {image.environment}
                     </span>
+                    {/* Mobile View Button */}
+                    <Button
+                      onClick={() => openImageModal(image)}
+                      size="sm"
+                      variant="outline"
+                      className="lg:hidden min-h-[36px] text-xs"
+                    >
+                      <ApperIcon name="Eye" className="w-3 h-3 mr-1" />
+                      View
+                    </Button>
                   </div>
 
                   {/* Improvements List */}
                   <div className="space-y-2">
                     {image.improvements.slice(0, 2).map((improvement, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-gray-600">
-                        <ApperIcon name="CheckCircle" className="w-4 h-4 mr-2 text-green-500" />
-                        {improvement}
+                      <div key={idx} className="flex items-start text-sm text-gray-600">
+                        <ApperIcon name="CheckCircle" className="w-4 h-4 mr-2 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="line-clamp-1">{improvement}</span>
                       </div>
                     ))}
                   </div>
@@ -307,48 +317,49 @@ const loadImages = async () => {
                   <img
                     src={showBefore[selectedImage.Id] ? selectedImage.beforeImage : selectedImage.afterImage}
                     alt={selectedImage.title}
-                    className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+                    className="w-full h-48 sm:h-64 lg:h-96 object-cover"
                   />
                   <Button
                     onClick={closeImageModal}
                     variant="outline"
                     size="sm"
-                    className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm"
+                    className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm min-h-[40px] min-w-[40px]"
                   >
                     <ApperIcon name="X" className="w-4 h-4" />
                   </Button>
                 </div>
                 
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900">
+                <div className="p-4 lg:p-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
+                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900">
                       {selectedImage.title}
                     </h3>
                     <Button
                       onClick={() => toggleImageView(selectedImage.Id)}
                       variant="outline"
                       size="sm"
+                      className="min-h-[44px] flex-shrink-0"
                     >
                       Show {showBefore[selectedImage.Id] ? "After" : "Before"}
                     </Button>
                   </div>
                   
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-600 mb-6 text-sm lg:text-base">
                     {selectedImage.description}
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">Environment</h4>
-                      <p className="text-gray-600">{selectedImage.environment}</p>
+                      <p className="text-gray-600 text-sm lg:text-base">{selectedImage.environment}</p>
                     </div>
                     
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">Key Improvements</h4>
                       <ul className="space-y-2">
                         {selectedImage.improvements.map((improvement, idx) => (
-                          <li key={idx} className="flex items-center text-gray-600">
-                            <ApperIcon name="CheckCircle" className="w-4 h-4 mr-2 text-green-500" />
+                          <li key={idx} className="flex items-start text-gray-600 text-sm lg:text-base">
+                            <ApperIcon name="CheckCircle" className="w-4 h-4 mr-2 text-green-500 flex-shrink-0 mt-0.5" />
                             {improvement}
                           </li>
                         ))}

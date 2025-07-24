@@ -133,9 +133,9 @@ const SpecificationTabs = () => {
   const currentSpec = specifications[activeTab];
 
   return (
-    <div className="p-8">
+<div className="p-4 sm:p-6 lg:p-8">
       {/* Tab Navigation */}
-      <div className="flex flex-wrap gap-2 mb-8 bg-gray-50 p-2 rounded-xl">
+      <div className="flex flex-wrap gap-2 mb-6 lg:mb-8 bg-gray-50 p-2 rounded-xl overflow-x-auto">
         {tabs.map((tab) => (
           <TabButton
             key={tab.id}
@@ -152,12 +152,12 @@ const SpecificationTabs = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="grid lg:grid-cols-2 gap-8"
+        className="grid lg:grid-cols-2 gap-6 lg:gap-8"
       >
         {/* Specifications Grid */}
         <div>
-          <h4 className="text-xl font-bold text-gray-900 mb-6">{currentSpec.title}</h4>
-          <div className="space-y-6">
+          <h4 className="text-lg lg:text-xl font-bold text-gray-900 mb-4 lg:mb-6">{currentSpec.title}</h4>
+          <div className="space-y-4 lg:space-y-6">
             {currentSpec.data.map((spec, index) => (
               <motion.div
                 key={index}
@@ -165,15 +165,15 @@ const SpecificationTabs = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gray-50 rounded-xl p-4"
+                className="bg-gray-50 rounded-xl p-3 lg:p-4"
               >
                 <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <div className="font-semibold text-gray-900">{spec.label}</div>
-                    <div className="text-sm text-gray-600">{spec.detail}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-gray-900 text-sm lg:text-base">{spec.label}</div>
+                    <div className="text-xs lg:text-sm text-gray-600 break-words">{spec.detail}</div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-xl font-bold gradient-text">{spec.value}</div>
+                  <div className="text-right ml-2">
+                    <div className="text-lg lg:text-xl font-bold gradient-text">{spec.value}</div>
                   </div>
                 </div>
                 <ProgressBar value={spec.progress} className="mt-3" />
@@ -192,27 +192,27 @@ const SpecificationTabs = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-8 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6"
+            className="mt-6 lg:mt-8 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-4 lg:p-6"
           >
-            <h5 className="font-bold text-gray-900 mb-4 flex items-center">
-              <ApperIcon name="Award" className="w-5 h-5 text-primary-500 mr-2" />
+            <h5 className="font-bold text-gray-900 mb-3 lg:mb-4 flex items-center text-sm lg:text-base">
+              <ApperIcon name="Award" className="w-4 h-4 lg:w-5 lg:h-5 text-primary-500 mr-2" />
               Key Advantages
             </h5>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 lg:gap-4">
               <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">3x</div>
+                <div className="text-xl lg:text-2xl font-bold gradient-text">3x</div>
                 <div className="text-xs text-gray-600">Faster than competitors</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">99.9%</div>
+                <div className="text-xl lg:text-2xl font-bold gradient-text">99.9%</div>
                 <div className="text-xs text-gray-600">Reliability rating</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">50%</div>
+                <div className="text-xl lg:text-2xl font-bold gradient-text">50%</div>
                 <div className="text-xs text-gray-600">Energy savings</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold gradient-text">24/7</div>
+                <div className="text-xl lg:text-2xl font-bold gradient-text">24/7</div>
                 <div className="text-xs text-gray-600">Continuous operation</div>
               </div>
             </div>

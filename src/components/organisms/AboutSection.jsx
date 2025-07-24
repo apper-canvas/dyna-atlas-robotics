@@ -148,30 +148,30 @@ const AboutSection = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
+                className="bg-white rounded-xl lg:rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
               >
                 {/* Header */}
-                <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-8 border-b border-gray-200">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-2 gradient-text">
+                <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 sm:p-6 lg:p-8 border-b border-gray-200">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 gradient-text">
                     Atlas Technical Specifications
                   </h3>
-                  <p className="text-gray-600">Comprehensive performance metrics and operational capabilities</p>
+                  <p className="text-gray-600 text-sm lg:text-base">Comprehensive performance metrics and operational capabilities</p>
                 </div>
 
                 {/* Specification Tabs */}
                 <SpecificationTabs />
               </motion.div>
 
-{/* Floating Performance Indicators */}
+              {/* Floating Performance Indicators - Responsive positioning */}
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="absolute -right-4 top-24 bg-primary-500 text-white rounded-xl p-4 shadow-xl hidden lg:block z-10"
+                className="absolute -right-2 lg:-right-4 top-16 lg:top-24 bg-primary-500 text-white rounded-lg lg:rounded-xl p-3 lg:p-4 shadow-xl hidden sm:block z-10"
               >
                 <div className="text-center">
-                  <div className="text-2xl font-bold">99.9%</div>
+                  <div className="text-lg lg:text-2xl font-bold">99.9%</div>
                   <div className="text-xs opacity-90">Precision</div>
                 </div>
               </motion.div>
@@ -181,10 +181,10 @@ const AboutSection = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
                 viewport={{ once: true }}
-                className="absolute -left-6 bottom-12 bg-gray-900 text-white rounded-xl p-4 shadow-xl hidden lg:block z-10"
+                className="absolute -left-2 lg:-left-6 bottom-8 lg:bottom-12 bg-gray-900 text-white rounded-lg lg:rounded-xl p-3 lg:p-4 shadow-xl hidden sm:block z-10"
               >
                 <div className="text-center">
-                  <div className="text-2xl font-bold">24/7</div>
+                  <div className="text-lg lg:text-2xl font-bold">24/7</div>
                   <div className="text-xs opacity-90">Operation</div>
                 </div>
               </motion.div>
@@ -194,11 +194,11 @@ const AboutSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
                 viewport={{ once: true }}
-                className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white rounded-full px-4 py-2 shadow-lg hidden lg:block z-10"
+                className="absolute -top-2 lg:-top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white rounded-full px-3 py-2 lg:px-4 lg:py-2 shadow-lg hidden sm:block z-10"
               >
-<div className="flex items-center space-x-2">
-                  <ApperIcon name="Zap" className="w-4 h-4" />
-                  <span className="text-sm font-semibold">AI Powered</span>
+                <div className="flex items-center space-x-2">
+                  <ApperIcon name="Zap" className="w-3 h-3 lg:w-4 lg:h-4" />
+                  <span className="text-xs lg:text-sm font-semibold">AI Powered</span>
                 </div>
               </motion.div>
             </div>

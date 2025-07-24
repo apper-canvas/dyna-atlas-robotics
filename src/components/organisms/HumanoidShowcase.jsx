@@ -67,7 +67,7 @@ const HumanoidShowcase = () => {
   };
 
   return (
-<section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+<section className="py-12 sm:py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23f97316%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
@@ -95,51 +95,51 @@ const HumanoidShowcase = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+<div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 lg:mb-20">
           {/* Robot Visual */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative order-2 lg:order-1"
           >
-            <div className="relative max-w-md mx-auto">
+            <div className="relative max-w-sm mx-auto lg:max-w-md">
               {/* Main Robot Display */}
-              <div className="aspect-[3/4] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 rounded-3xl shadow-2xl relative overflow-hidden border border-gray-600">
+              <div className="aspect-[3/4] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 rounded-2xl lg:rounded-3xl shadow-2xl relative overflow-hidden border border-gray-600">
                 {/* Robot Silhouette */}
-                <div className="absolute inset-8 border-2 border-primary-400/60 rounded-2xl">
+                <div className="absolute inset-6 lg:inset-8 border-2 border-primary-400/60 rounded-xl lg:rounded-2xl">
                   {/* Head */}
-                  <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg shadow-lg"></div>
+                  <div className="absolute top-3 lg:top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg shadow-lg"></div>
                   
                   {/* Body */}
-                  <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-16 h-24 bg-gradient-to-br from-gray-600 to-gray-700 rounded-lg border border-primary-400/40"></div>
+                  <div className="absolute top-16 lg:top-20 left-1/2 transform -translate-x-1/2 w-14 h-20 lg:w-16 lg:h-24 bg-gradient-to-br from-gray-600 to-gray-700 rounded-lg border border-primary-400/40"></div>
                   
                   {/* Arms */}
-                  <div className="absolute top-24 left-6 w-3 h-16 bg-gradient-to-b from-primary-500 to-primary-600 rounded-full"></div>
-                  <div className="absolute top-24 right-6 w-3 h-16 bg-gradient-to-b from-primary-500 to-primary-600 rounded-full"></div>
+                  <div className="absolute top-20 lg:top-24 left-5 lg:left-6 w-3 h-14 lg:h-16 bg-gradient-to-b from-primary-500 to-primary-600 rounded-full"></div>
+                  <div className="absolute top-20 lg:top-24 right-5 lg:right-6 w-3 h-14 lg:h-16 bg-gradient-to-b from-primary-500 to-primary-600 rounded-full"></div>
                   
                   {/* Legs */}
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 -translate-x-4 w-4 h-20 bg-gradient-to-b from-gray-600 to-gray-700 rounded-lg"></div>
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 translate-x-4 w-4 h-20 bg-gradient-to-b from-gray-600 to-gray-700 rounded-lg"></div>
+                  <div className="absolute bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 -translate-x-3 lg:-translate-x-4 w-3 lg:w-4 h-16 lg:h-20 bg-gradient-to-b from-gray-600 to-gray-700 rounded-lg"></div>
+                  <div className="absolute bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 translate-x-3 lg:translate-x-4 w-3 lg:w-4 h-16 lg:h-20 bg-gradient-to-b from-gray-600 to-gray-700 rounded-lg"></div>
                 </div>
 
                 {/* Status Indicators */}
-                <div className="absolute top-4 right-4 flex flex-col space-y-2">
+                <div className="absolute top-3 lg:top-4 right-3 lg:right-4 flex flex-col space-y-1 lg:space-y-2">
                   <motion.div
                     animate={{ opacity: [0.4, 1, 0.4] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="w-3 h-3 bg-green-400 rounded-full shadow-lg"
+                    className="w-2 h-2 lg:w-3 lg:h-3 bg-green-400 rounded-full shadow-lg"
                   ></motion.div>
                   <motion.div
                     animate={{ opacity: [1, 0.4, 1] }}
                     transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                    className="w-3 h-3 bg-blue-400 rounded-full shadow-lg"
+                    className="w-2 h-2 lg:w-3 lg:h-3 bg-blue-400 rounded-full shadow-lg"
                   ></motion.div>
                   <motion.div
                     animate={{ opacity: [0.4, 1, 0.4] }}
                     transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                    className="w-3 h-3 bg-primary-400 rounded-full shadow-lg"
+                    className="w-2 h-2 lg:w-3 lg:h-3 bg-primary-400 rounded-full shadow-lg"
                   ></motion.div>
                 </div>
 
@@ -151,21 +151,21 @@ const HumanoidShowcase = () => {
                 ></motion.div>
               </div>
 
-              {/* Floating Tech Elements */}
+              {/* Floating Tech Elements - Hidden on mobile */}
               <motion.div
                 animate={{ y: [-8, 8, -8], rotate: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-6 -right-8 w-20 h-20 bg-gradient-to-br from-primary-500 to-orange-500 rounded-2xl shadow-xl flex items-center justify-center"
+                className="absolute -top-4 -right-6 lg:-top-6 lg:-right-8 w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary-500 to-orange-500 rounded-xl lg:rounded-2xl shadow-xl items-center justify-center hidden sm:flex"
               >
-                <ApperIcon name="Cpu" className="w-10 h-10 text-white" />
+                <ApperIcon name="Cpu" className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
               </motion.div>
 
               <motion.div
                 animate={{ y: [8, -8, 8], rotate: [0, -5, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity }}
-                className="absolute -bottom-4 -left-8 w-16 h-16 bg-gradient-to-br from-blue-500 to-primary-500 rounded-xl shadow-xl flex items-center justify-center"
+                className="absolute -bottom-3 -left-6 lg:-bottom-4 lg:-left-8 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-primary-500 rounded-lg lg:rounded-xl shadow-xl items-center justify-center hidden sm:flex"
               >
-                <ApperIcon name="Zap" className="w-8 h-8 text-white" />
+                <ApperIcon name="Zap" className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
               </motion.div>
             </div>
           </motion.div>
@@ -176,11 +176,12 @@ const HumanoidShowcase = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="order-1 lg:order-2"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Technical Specifications</h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-6">Technical Specifications</h3>
             <Card className="mb-6 border-0 shadow-lg bg-white/80 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <div className="grid grid-cols-2 gap-4">
+              <CardContent className="p-4 lg:p-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
                   {specifications.map((spec, index) => (
                     <motion.div
                       key={spec.label}
@@ -191,19 +192,19 @@ const HumanoidShowcase = () => {
                       className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0"
                     >
                       <span className="text-gray-600 text-sm font-medium">{spec.label}</span>
-                      <span className="text-gray-900 font-bold">{spec.value}</span>
+                      <span className="text-gray-900 font-bold text-sm lg:text-base">{spec.value}</span>
                     </motion.div>
                   ))}
                 </div>
               </CardContent>
             </Card>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="flex-1 group">
+            <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
+              <Button className="flex-1 group text-sm lg:text-base">
                 View Full Specs
                 <ApperIcon name="ExternalLink" className="w-4 h-4 ml-2 transition-transform group-hover:scale-110" />
               </Button>
-              <Button variant="secondary" className="flex-1 group">
+              <Button variant="secondary" className="flex-1 group text-sm lg:text-base">
                 Download Datasheet
                 <ApperIcon name="Download" className="w-4 h-4 ml-2 transition-transform group-hover:translate-y-0.5" />
               </Button>
@@ -219,13 +220,13 @@ const HumanoidShowcase = () => {
           viewport={{ once: true }}
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Key Capabilities</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Key Capabilities</h3>
+            <p className="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
               Advanced features that make Atlas the perfect choice for modern industrial applications
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {capabilities.map((capability, index) => (
               <motion.div key={capability.title} variants={itemVariants}>
                 <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm group hover:scale-105">

@@ -190,7 +190,7 @@ const HeroSection = () => {
               >
                 <motion.div 
                   className="text-3xl font-bold gradient-text"
-                  whileHover={{ scale: 1.1 }}
+whileHover={{ scale: window.innerWidth >= 768 ? 1.1 : 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   99.9%

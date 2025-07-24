@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
-import Button from "@/components/atoms/Button";
 import { Card, CardContent, CardHeader } from "@/components/atoms/Card";
+import Button from "@/components/atoms/Button";
 
 const DetailsSection = () => {
   const [activeTab, setActiveTab] = useState('capabilities');
@@ -181,7 +181,7 @@ const DetailsSection = () => {
         >
           <div className="bg-white rounded-2xl p-2 shadow-lg border border-gray-200">
             <div className="flex space-x-2">
-              {tabs.map((tab) => (
+{tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
