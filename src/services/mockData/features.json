@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "icon": "Cpu",
+    "title": "Advanced AI Processing",
+    "description": "State-of-the-art neural networks enable real-time decision making and adaptive learning in complex industrial environments."
+  },
+  {
+    "Id": 2,
+    "icon": "Shield",
+    "title": "Industrial Safety Standards",
+    "description": "Built to exceed ISO 10218 safety requirements with advanced collision detection and emergency stop systems."
+  },
+  {
+    "Id": 3,
+    "icon": "Zap",
+    "title": "High-Precision Movement",
+    "description": "Sub-millimeter accuracy with dynamic load balancing for precise assembly, welding, and material handling tasks."
+  },
+  {
+    "Id": 4,
+    "icon": "Settings",
+    "title": "Modular Design",
+    "description": "Easily configurable end-effectors and tool attachments for diverse industrial applications and workflows."
+  },
+  {
+    "Id": 5,
+    "icon": "Clock",
+    "title": "24/7 Operation",
+    "description": "Designed for continuous operation with predictive maintenance algorithms and minimal downtime requirements."
+  },
+  {
+    "Id": 6,
+    "icon": "Network",
+    "title": "IoT Integration",
+    "description": "Seamless connectivity with existing industrial systems, ERP platforms, and manufacturing execution systems."
+  }
+]
