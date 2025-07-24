@@ -11,20 +11,26 @@
     "href": "#about",
     "isActive": false
   },
-  {
+{
     "Id": 3,
-    "label": "Features",
-    "href": "#features",
+    "label": "Gallery",
+    "href": "#gallery",
     "isActive": false
   },
   {
     "Id": 4,
+    "label": "Features",
+    "href": "#features",
+    "isActive": false
+  },
+{
+    "Id": 5,
     "label": "Testimonials",
     "href": "#testimonials",
     "isActive": false
   },
-  {
-    "Id": 5,
+{
+    "Id": 6,
     "label": "Contact",
     "href": "#contact",
     "isActive": false
